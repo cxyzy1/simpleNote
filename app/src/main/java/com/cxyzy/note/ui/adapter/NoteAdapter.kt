@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.cxyzy.note.R
 import com.cxyzy.note.db.bean.Note
-import kotlinx.android.synthetic.main.item_task.view.*
+import kotlinx.android.synthetic.main.item_note.view.*
 
 class NoteAdapter : PagedListAdapter<Note, NoteAdapter.ViewHolder>(DiffCallback()) {
     private lateinit var onItemClick: (note: Note) -> Unit
@@ -19,7 +19,7 @@ class NoteAdapter : PagedListAdapter<Note, NoteAdapter.ViewHolder>(DiffCallback(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_task, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_note, parent, false)
         return ViewHolder(view)
     }
 

@@ -9,7 +9,7 @@ import com.cxyzy.note.viewmodels.NoteViewModel
 import com.cxyzy.note.R
 import kotlinx.android.synthetic.main.activity_note.*
 
-class NoteActivity : AppCompatActivity() {
+class EditNoteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
