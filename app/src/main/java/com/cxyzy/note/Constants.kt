@@ -1,4 +1,4 @@
-package com.cxyzy.note.utils
+package com.cxyzy.note
 
 const val DATABASE_NAME = "note"
 

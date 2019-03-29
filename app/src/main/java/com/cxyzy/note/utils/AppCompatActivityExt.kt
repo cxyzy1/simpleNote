@@ -1,4 +1,4 @@
-package com.cxyzy.note.ext
+package com.cxyzy.note.utils
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel

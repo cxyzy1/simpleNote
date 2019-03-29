@@ -10,8 +10,10 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.cxyzy.note.App.Companion.context
 import com.cxyzy.note.db.bean.Note
-import com.cxyzy.note.ext.obtainViewModel
-import com.cxyzy.note.utils.ExtraKey.KEY_NOTE
+import com.cxyzy.note.utils.obtainViewModel
+import com.cxyzy.note.ExtraKey.KEY_NOTE
+import com.cxyzy.note.utils.KeyBoardUtil.hideSoftInput
+import com.cxyzy.note.utils.KeyBoardUtil.showSoftInput
 import com.cxyzy.note.viewmodels.NoteViewModel
 import kotlinx.android.synthetic.main.activity_edit_note.*
 
@@ -46,7 +48,7 @@ class EditNoteActivity : AppCompatActivity() {
             note!!.content = content.toString()
             viewModel.update(note!!)
         }
-        hideSoftInput(this)
+        finish()
     }
 
     private fun processIntent() {
@@ -64,18 +66,6 @@ class EditNoteActivity : AppCompatActivity() {
 
     }
 
-    private fun showSoftInput(activity: Activity, editText: EditText) {
-        editText.requestFocus()
-        activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
-    }
 
-    private fun hideSoftInput(activity: Activity) {
-        var view = activity.currentFocus
-        if (view == null) {
-            view = View(activity)
-        }
-        val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0)
-    }
 
 }
