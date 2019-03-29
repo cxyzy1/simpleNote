@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/viewBackground"
     android:orientation="vertical">
 
@@ -11,15 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
+        app:navigationIcon="@mipmap/back"
+        tools:title="编辑"
         app:popupTheme="@style/AppTheme.PopupOverlay"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@null"
-        android:hint="准备做什么？" />
 
     <View
         android:layout_width="match_parent"
