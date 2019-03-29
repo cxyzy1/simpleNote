@@ -1,9 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/submit"
+        android:id="@+id/submitNoteMenuItem"
         android:icon="@mipmap/ok"
         android:title="@string/ok"
-        app:showAsAction="always" />
-
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/delNoteMenuItem"
+        android:icon="@mipmap/delete"
+        android:title="@string/delete"
+        app:showAsAction="never" />
 </menu>

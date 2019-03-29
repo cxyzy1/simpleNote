@@ -25,4 +25,5 @@
     <color name="Grey600">#757575</color>
     <color name="Grey700">#616161</color>
     <color name="Grey800">#424242</color>
+    <color name="common_text_color">#FFFFFF</color>
 </resources>

@@ -1,19 +1,13 @@
 package com.cxyzy.note.ui.activity
 
-import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.cxyzy.note.App.Companion.context
-import com.cxyzy.note.db.bean.Note
-import com.cxyzy.note.utils.obtainViewModel
 import com.cxyzy.note.ExtraKey.KEY_NOTE
-import com.cxyzy.note.utils.KeyBoardUtil.hideSoftInput
+import com.cxyzy.note.R
+import com.cxyzy.note.db.bean.Note
 import com.cxyzy.note.utils.KeyBoardUtil.showSoftInput
+import com.cxyzy.note.utils.obtainViewModel
 import com.cxyzy.note.viewmodels.NoteViewModel
 import kotlinx.android.synthetic.main.activity_edit_note.*
 
@@ -31,13 +25,37 @@ class EditNoteActivity : AppCompatActivity() {
         initListeners()
     }
 
+    private fun processIntent() {
+        note = intent?.getParcelableExtra(KEY_NOTE)
+    }
+
+    private fun initViews() {
+        editNoteToolbar.inflateMenu(com.cxyzy.note.R.menu.edit_note_menu)
+        editNoteToolbar.setNavigationOnClickListener { finish() }
+        if (note != null) {
+            contentET.setText(note!!.content)
+        } else {
+            editNoteToolbar.menu.findItem(R.id.delNoteMenuItem).isVisible = false
+        }
+
+        showSoftInput(this, contentET)
+
+    }
+
     private fun initListeners() {
         editNoteToolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
-                com.cxyzy.note.R.id.submit -> saveNote()
+                R.id.submitNoteMenuItem -> saveNote()
+                R.id.delNoteMenuItem -> delNote()
             }
             false
         }
+
+    }
+
+    private fun delNote() {
+        viewModel.del(note!!.id)
+        finish()
     }
 
     private fun saveNote() {
@@ -50,22 +68,6 @@ class EditNoteActivity : AppCompatActivity() {
         }
         finish()
     }
-
-    private fun processIntent() {
-        note = intent?.getParcelableExtra(KEY_NOTE)
-    }
-
-    private fun initViews() {
-        editNoteToolbar.inflateMenu(com.cxyzy.note.R.menu.edit_note_menu)
-        editNoteToolbar.setNavigationOnClickListener { finish() }
-        note?.let {
-            contentET.setText(note!!.content)
-        }
-
-        showSoftInput(this, contentET)
-
-    }
-
 
 
 }
