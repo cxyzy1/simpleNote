@@ -3,10 +3,10 @@ package com.cxyzy.note.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.cxyzy.note.InjectionUtil
-import com.cxyzy.note.db.repository.TaskRepository
+import com.cxyzy.note.db.repository.NoteRepository
 
 class ViewModelFactory private constructor(
-        private val taskRepository: TaskRepository
+        private val noteRepository: NoteRepository
 //    ,
 //    private val gankFilterRepository: GankFilterRepository,
 //    private val searchRepository: GankSearchRepository
@@ -16,8 +16,8 @@ class ViewModelFactory private constructor(
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
             with(modelClass) {
                 when {
-                    isAssignableFrom(TaskViewModel::class.java) -> {
-                        TaskViewModel(taskRepository)
+                    isAssignableFrom(NoteViewModel::class.java) -> {
+                        NoteViewModel(noteRepository)
                     }
 //                isAssignableFrom(GankFilterViewModel::class.java) -> {
 //                    GankFilterViewModel(gankFilterRepository)

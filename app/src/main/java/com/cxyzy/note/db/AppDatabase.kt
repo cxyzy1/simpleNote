@@ -7,16 +7,16 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
-import com.cxyzy.note.db.bean.Task
-import com.cxyzy.note.db.dao.TaskDao
+import com.cxyzy.note.db.bean.Note
+import com.cxyzy.note.db.dao.NoteDao
 import com.cxyzy.note.utils.DATABASE_NAME
 import com.cxyzy.note.db.test.DbTestDataInit
 
 
-@Database(entities = [Task::class], version = 1, exportSchema = false)
+@Database(entities = [Note::class], version = 1, exportSchema = false)
 
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun taskDao(): TaskDao
+    abstract fun taskDao(): NoteDao
 
     companion object {
 

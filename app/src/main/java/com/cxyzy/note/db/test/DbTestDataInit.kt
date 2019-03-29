@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.cxyzy.note.db.AppDatabase
-import com.cxyzy.note.db.bean.Task
+import com.cxyzy.note.db.bean.Note
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 
@@ -19,10 +19,10 @@ class DbTestDataInit(
 
         val database = AppDatabase.getInstance(applicationContext)
 
-        val mList = mutableListOf<Task>()
+        val mList = mutableListOf<Note>()
 
         (1..1000).forEach {
-            mList.add(Task(it, "task$it"))
+            mList.add(Note(it, "note$it"))
         }
         database.taskDao().add(mList)
         Result.success()
