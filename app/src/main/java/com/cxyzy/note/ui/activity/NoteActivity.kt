@@ -17,8 +17,8 @@ class NoteActivity : AppCompatActivity() {
 
         val viewModel =  obtainViewModel(NoteViewModel::class.java)
         val adapter = NoteAdapter()
-        adapter.setOnItemClick { task ->
-            viewModel.delTask(task.id)
+        adapter.setOnItemClick { note ->
+            viewModel.delTask(note.id)
         }
         taskRv.adapter = adapter
         viewModel.taskList.observe(this, Observer { adapter.submitList(it) })

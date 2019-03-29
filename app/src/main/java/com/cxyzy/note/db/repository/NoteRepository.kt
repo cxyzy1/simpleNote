@@ -15,15 +15,15 @@ class NoteRepository private constructor(private val noteDao: NoteDao) {
 
     suspend fun add(name: String) {
         withContext(Dispatchers.IO) {
-            val task = Note(0, name)
-            noteDao.add(task)
+            val note = Note(0, name)
+            noteDao.add(note)
         }
     }
 
     suspend fun delTask(id: Int) {
         withContext(Dispatchers.IO) {
-            val task = Note(id, "")
-            noteDao.del(task)
+            val note = Note(id, "")
+            noteDao.del(note)
         }
     }
 

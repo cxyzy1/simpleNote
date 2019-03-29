@@ -14,7 +14,7 @@ class NoteAdapter : PagedListAdapter<Note, NoteAdapter.ViewHolder>(DiffCallback(
     private lateinit var onItemClick: (note: Note) -> Unit
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = getItem(position) ?: return
-        holder.itemView.taskTv.text = data.name
+        holder.itemView.noteTv.text = data.name
         holder.itemView.setOnClickListener { onItemClick(data) }
     }
 
