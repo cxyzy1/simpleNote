@@ -46,7 +46,6 @@ class EditNoteActivity : AppCompatActivity() {
             note!!.content = content.toString()
             viewModel.update(note!!)
         }
-//        hideSoftInputFromWindow(contentET)
         hideSoftInput(this)
     }
 
