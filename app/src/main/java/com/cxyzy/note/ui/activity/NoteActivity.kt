@@ -12,12 +12,28 @@ import com.cxyzy.note.utils.ExtraKey.KEY_NOTE
 import kotlinx.android.synthetic.main.activity_note.*
 
 class NoteActivity : AppCompatActivity() {
+    private lateinit var viewModel: NoteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note)
+        viewModel = obtainViewModel(NoteViewModel::class.java)
+        initViews()
+        initListeners()
+    }
 
-        val viewModel = obtainViewModel(NoteViewModel::class.java)
+    private fun initListeners() {
+        addIv.setOnClickListener {
+            startActivity(Intent(this, EditNoteActivity().javaClass))
+        }
+        //设置下拉刷新转圈的颜色
+//        swipeRefreshLayout.setColorSchemeColors(Color.RED,Color.BLUE,Color.GREEN)
+        swipeRefreshLayout.setOnRefreshListener {
+            swipeRefreshLayout.isRefreshing = false
+        }
+    }
+
+    private fun initViews() {
         val adapter = NoteAdapter()
         adapter.setOnItemClick { note ->
             val intent = Intent(this, EditNoteActivity().javaClass)
@@ -26,12 +42,6 @@ class NoteActivity : AppCompatActivity() {
         }
         taskRv.adapter = adapter
         viewModel.taskList.observe(this, Observer { adapter.submitList(it) })
-
-        //设置下拉刷新转圈的颜色
-//        swipeRefreshLayout.setColorSchemeColors(Color.RED,Color.BLUE,Color.GREEN)
-        swipeRefreshLayout.setOnRefreshListener {
-            swipeRefreshLayout.isRefreshing = false
-        }
     }
 
 }

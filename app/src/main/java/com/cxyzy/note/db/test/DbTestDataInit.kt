@@ -21,7 +21,7 @@ class DbTestDataInit(
 
         val mList = mutableListOf<Note>()
 
-        (1..1000).forEach {
+        (1..10).forEach {
             mList.add(Note(it, "note$it"))
         }
         database.taskDao().add(mList)

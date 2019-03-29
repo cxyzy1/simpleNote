@@ -20,7 +20,13 @@ class NoteRepository private constructor(private val noteDao: NoteDao) {
         }
     }
 
-    suspend fun delTask(id: Int) {
+    suspend fun update(note: Note) {
+        withContext(Dispatchers.IO) {
+            noteDao.update(note)
+        }
+    }
+
+    suspend fun del(id: Int) {
         withContext(Dispatchers.IO) {
             val note = Note(id, "")
             noteDao.del(note)

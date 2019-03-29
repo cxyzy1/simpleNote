@@ -8,4 +8,4 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity
 data class Note(@PrimaryKey(autoGenerate = true) val id: Int,
-                var name: String): Parcelable
+                var content: String) : Parcelable

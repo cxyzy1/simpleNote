@@ -1,10 +1,7 @@
 package com.cxyzy.note.db.dao
 
 import androidx.paging.DataSource
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.cxyzy.note.db.bean.Note
 
 @Dao
@@ -18,6 +15,10 @@ interface NoteDao {
     @Insert
     fun add(notes: List<Note>)
 
+    @Update
+    fun update(note: Note)
+
     @Delete
     fun del(note: Note)
+
 }
