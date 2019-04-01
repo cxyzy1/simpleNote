@@ -22,7 +22,7 @@ class NoteViewModel internal constructor(private val noteRepository: NoteReposit
         }
     }
 
-    fun del(id: Int) {
+    fun del(id: Long) {
         GlobalScope.launch {
             noteRepository.del(id)
         }

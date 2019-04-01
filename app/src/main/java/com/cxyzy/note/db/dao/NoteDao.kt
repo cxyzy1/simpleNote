@@ -6,7 +6,7 @@ import com.cxyzy.note.db.bean.Note
 
 @Dao
 interface NoteDao {
-    @Query("SELECT * FROM Note")
+    @Query("SELECT * FROM Note order by updateDate desc")
     fun getTaskList(): DataSource.Factory<Int, Note>
 
     @Insert
@@ -20,5 +20,8 @@ interface NoteDao {
 
     @Delete
     fun del(note: Note)
+
+    @Query("DELETE FROM Note WHERE id = (:id)")
+    fun del(id: Long)
 
 }
