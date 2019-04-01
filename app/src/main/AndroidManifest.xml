@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cxyzy.note">
 
+    <dist:module dist:instant="true" />
     <application
         android:name="com.cxyzy.note.App"
         android:allowBackup="false"
@@ -20,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.EditNoteActivity"/>
+        <activity android:name=".ui.activity.EditNoteActivity" />
     </application>
 
 </manifest>
