@@ -38,6 +38,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
-        android:src="@mipmap/add" />
+        app:srcCompat="@drawable/add" />
 
 </RelativeLayout>
