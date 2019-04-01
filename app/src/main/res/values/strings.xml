@@ -2,4 +2,6 @@
     <string name="app_name">SimpleNote</string>
     <string name="ok">OK</string>
     <string name="delete">Delete</string>
+    <string name="add_note">Add Note</string>
+    <string name="edit_note">Edit Note</string>
 </resources>

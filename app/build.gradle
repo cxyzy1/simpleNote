@@ -13,6 +13,23 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    signingConfigs {
+        release {
+            storeFile file("../test.keystore")
+            storePassword "123456"
+            keyAlias "test"
+            keyPassword "123456"
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+    }
     dataBinding {
         enabled = true
     }

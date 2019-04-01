@@ -10,7 +10,9 @@ import com.cxyzy.note.utils.obtainViewModel
 import com.cxyzy.note.viewmodels.NoteViewModel
 import kotlinx.android.synthetic.main.activity_edit_note.*
 
-
+/**
+ * Add or edit note
+ */
 class EditNoteActivity : AppCompatActivity() {
     private var note: Note? = null
     private lateinit var viewModel: NoteViewModel
@@ -31,15 +33,20 @@ class EditNoteActivity : AppCompatActivity() {
     private fun initViews() {
         editNoteToolbar.inflateMenu(com.cxyzy.note.R.menu.edit_note_menu)
         editNoteToolbar.setNavigationOnClickListener { finish() }
-        if (note != null) {
+        if (isToEditNote()) {
+            editNoteToolbar.title= getString(R.string.edit_note)
             contentET.setText(note!!.content)
         } else {
+            editNoteToolbar.title= getString(R.string.add_note)
             editNoteToolbar.menu.findItem(R.id.delNoteMenuItem).isVisible = false
         }
 
         showSoftInput(this, contentET)
 
     }
+
+    private fun isToEditNote() = note != null
+
 
     private fun initListeners() {
         editNoteToolbar.setOnMenuItemClickListener { item ->
