@@ -20,12 +20,12 @@ class DbTestDataInit(
 
         val database = AppDatabase.getInstance(applicationContext)
 
-        val mList = mutableListOf<Note>()
-        (1..100).forEach {
-            mList.add(Note(it.toLong(), "notewwwwwwwwwwwwwwwwwwwwwwwww$it", Date()))
-        }
-        database.taskDao().add(mList)
-//        database.taskDao().add(Note(0, "sample Note"))
+//        val mList = mutableListOf<Note>()
+//        (1..100).forEach {
+//            mList.add(Note(it.toLong(), "note$it"))
+//        }
+//        database.taskDao().add(mList)
+        database.taskDao().add(Note(0, "sample Note"))
         Result.success()
     }
 }

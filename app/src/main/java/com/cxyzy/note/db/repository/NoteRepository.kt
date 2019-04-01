@@ -16,7 +16,7 @@ class NoteRepository private constructor(private val noteDao: NoteDao) {
 
     suspend fun add(name: String) {
         withContext(Dispatchers.IO) {
-            val note = Note(0, name, Date())
+            val note = Note(0, name)
             noteDao.add(note)
         }
     }

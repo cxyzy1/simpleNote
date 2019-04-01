@@ -10,4 +10,4 @@ import java.util.*
 @Entity
 data class Note(@PrimaryKey(autoGenerate = true) val id: Long,
                 var content: String,
-                var updateDate: Date) : Parcelable
+                var updateDate: Date = Date()) : Parcelable
