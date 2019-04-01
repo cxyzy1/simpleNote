@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SimpleNote</string>
+    <string name="app_name">Shell Note</string>
     <string name="ok">OK</string>
     <string name="delete">Delete</string>
     <string name="add_note">Add Note</string>

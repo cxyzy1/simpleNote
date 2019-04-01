@@ -17,11 +17,6 @@
         app:titleTextColor="@color/color_title_bg"
         tools:title="编辑" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#F9F9F9" />
-
     <EditText
         android:id="@+id/contentET"
         android:layout_width="match_parent"
