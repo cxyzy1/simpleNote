@@ -35,7 +35,7 @@ class NoteActivity : AppCompatActivity() {
 
     private fun initViews() {
         val adapter = NoteAdapter()
-        adapter.setOnItemClick { note ->
+        adapter.onItemClick = { note ->
             val intent = Intent(this, EditNoteActivity().javaClass)
             intent.putExtra(KEY_NOTE, note)
             startActivity(intent)

@@ -11,20 +11,18 @@ import com.cxyzy.note.db.bean.Note
 import kotlinx.android.synthetic.main.item_note.view.*
 
 class NoteAdapter : PagedListAdapter<Note, NoteAdapter.ViewHolder>(DiffCallback()) {
-    private lateinit var onItemClick: (note: Note) -> Unit
+    var onItemClick: ((Note) -> Unit?)? = null
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = getItem(position) ?: return
         holder.itemView.noteTv.text = data.content
-        holder.itemView.setOnClickListener { onItemClick(data) }
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(data)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_note, parent, false)
         return ViewHolder(view)
-    }
-
-    infix fun setOnItemClick(onClick: (note: Note) -> Unit) {
-        this.onItemClick = onClick
     }
 
     class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!)
