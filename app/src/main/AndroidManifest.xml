@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name="com.cxyzy.note.ui.activity.NoteActivity">
+        <activity android:name="com.cxyzy.note.ui.activity.ListNoteActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.EditNoteActivity" />
+        <activity android:name=".ui.activity.AddNoteActivity" />
     </application>
 
 </manifest>

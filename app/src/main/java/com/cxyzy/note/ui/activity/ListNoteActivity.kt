@@ -11,7 +11,7 @@ import com.cxyzy.note.utils.obtainViewModel
 import com.cxyzy.note.viewmodels.NoteViewModel
 import kotlinx.android.synthetic.main.activity_note.*
 
-class NoteActivity : AppCompatActivity() {
+class ListNoteActivity : AppCompatActivity() {
     private lateinit var viewModel: NoteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class NoteActivity : AppCompatActivity() {
 
     private fun initListeners() {
         addIv.setOnClickListener {
-            startActivity(Intent(this, EditNoteActivity().javaClass))
+            startActivity(Intent(this, AddNoteActivity().javaClass))
         }
         //设置下拉刷新转圈的颜色
 //        swipeRefreshLayout.setColorSchemeColors(Color.RED,Color.BLUE,Color.GREEN)
