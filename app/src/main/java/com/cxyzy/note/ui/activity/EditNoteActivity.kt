@@ -6,7 +6,6 @@ import com.cxyzy.note.ExtraKey.KEY_NOTE
 import com.cxyzy.note.R
 import com.cxyzy.note.db.bean.Note
 import com.cxyzy.note.utils.KeyBoardUtil.showSoftInput
-import com.cxyzy.note.utils.logger.loge
 import com.cxyzy.note.utils.obtainViewModel
 import com.cxyzy.note.viewmodels.NoteViewModel
 import kotlinx.android.synthetic.main.activity_edit_note.*
