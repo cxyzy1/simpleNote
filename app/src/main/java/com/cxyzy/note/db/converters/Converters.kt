@@ -1,8 +1,7 @@
 package com.cxyzy.note.db.converters
 
-import java.util.Date
-
 import androidx.room.TypeConverter
+import java.util.*
 
 class Converters {
     @TypeConverter

@@ -5,7 +5,6 @@ import androidx.paging.toLiveData
 import com.cxyzy.note.App
 import com.cxyzy.note.db.AppDatabase
 import com.cxyzy.note.db.bean.Note
-import com.cxyzy.note.db.dao.NoteDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.*

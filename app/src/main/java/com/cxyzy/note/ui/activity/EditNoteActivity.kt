@@ -25,10 +25,10 @@ class EditNoteActivity : BaseActivity<NoteViewModel>() {
         editNoteToolbar.inflateMenu(R.menu.edit_note_menu)
         editNoteToolbar.setNavigationOnClickListener { finish() }
         if (isToEditNote()) {
-            editNoteToolbar.title= getString(R.string.edit_note)
+            editNoteToolbar.title = getString(R.string.edit_note)
             contentET.setText(note!!.content)
         } else {
-            editNoteToolbar.title= getString(R.string.add_note)
+            editNoteToolbar.title = getString(R.string.add_note)
             editNoteToolbar.menu.findItem(R.id.delNoteMenuItem).isVisible = false
         }
 
