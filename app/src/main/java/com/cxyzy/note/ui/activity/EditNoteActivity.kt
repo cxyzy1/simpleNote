@@ -1,36 +1,27 @@
 package com.cxyzy.note.ui.activity
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.cxyzy.note.ExtraKey.KEY_NOTE
 import com.cxyzy.note.R
 import com.cxyzy.note.db.bean.Note
 import com.cxyzy.note.utils.KeyBoardUtil.showSoftInput
-import com.cxyzy.note.utils.obtainViewModel
 import com.cxyzy.note.viewmodels.NoteViewModel
 import kotlinx.android.synthetic.main.activity_edit_note.*
 
 /**
  * Add or edit note
  */
-class EditNoteActivity : AppCompatActivity() {
+class EditNoteActivity : BaseActivity<NoteViewModel>() {
+
+    override fun providerVMClass(): Class<NoteViewModel> = NoteViewModel::class.java
+    override fun layoutId(): Int = R.layout.activity_edit_note
+
     private var note: Note? = null
-    private lateinit var viewModel: NoteViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_note)
-        viewModel = obtainViewModel(NoteViewModel::class.java)
-        processIntent()
-        initViews()
-        initListeners()
-    }
-
-    private fun processIntent() {
+    override fun prepareBeforeInitView() {
         note = intent?.getParcelableExtra(KEY_NOTE)
     }
 
-    private fun initViews() {
+    override fun initView() {
         editNoteToolbar.inflateMenu(R.menu.edit_note_menu)
         editNoteToolbar.setNavigationOnClickListener { finish() }
         if (isToEditNote()) {
@@ -45,10 +36,7 @@ class EditNoteActivity : AppCompatActivity() {
 
     }
 
-    private fun isToEditNote() = note != null
-
-
-    private fun initListeners() {
+    override fun initListeners() {
         editNoteToolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.submitNoteMenuItem -> saveNote()
@@ -59,6 +47,7 @@ class EditNoteActivity : AppCompatActivity() {
 
     }
 
+    private fun isToEditNote() = note != null
     private fun delNote() {
         viewModel.del(note!!.id)
         finish()
@@ -74,6 +63,5 @@ class EditNoteActivity : AppCompatActivity() {
         }
         finish()
     }
-
 
 }

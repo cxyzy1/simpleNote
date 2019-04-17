@@ -2,15 +2,17 @@ package com.cxyzy.note.db.repository
 
 import androidx.paging.Config
 import androidx.paging.toLiveData
+import com.cxyzy.note.App
+import com.cxyzy.note.db.AppDatabase
 import com.cxyzy.note.db.bean.Note
 import com.cxyzy.note.db.dao.NoteDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.*
 
-class NoteRepository private constructor(private val noteDao: NoteDao) {
-
-    fun getTaskList() = noteDao.getTaskList().toLiveData(Config(
+object NoteRepository {
+    private val noteDao = AppDatabase.getInstance(App.context).noteDao()
+    fun getNoteList() = noteDao.getTaskList().toLiveData(Config(
             pageSize = 30,
             enablePlaceholders = true))
 
@@ -32,16 +34,5 @@ class NoteRepository private constructor(private val noteDao: NoteDao) {
         withContext(Dispatchers.IO) {
             noteDao.del(id)
         }
-    }
-
-    companion object {
-        @Volatile
-        private var instance: NoteRepository? = null
-
-        fun getInstance(noteDao: NoteDao) =
-                instance ?: synchronized(this) {
-                    instance
-                            ?: NoteRepository(noteDao).also { instance = it }
-                }
     }
 }

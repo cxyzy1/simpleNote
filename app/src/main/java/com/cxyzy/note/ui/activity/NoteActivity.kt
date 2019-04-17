@@ -41,7 +41,7 @@ class NoteActivity : AppCompatActivity() {
             startActivity(intent)
         }
         taskRv.adapter = adapter
-        viewModel.taskList.observe(this, Observer { adapter.submitList(it) })
+        viewModel.noteList.observe(this, Observer { adapter.submitList(it) })
     }
 
 }

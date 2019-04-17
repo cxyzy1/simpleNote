@@ -8,7 +8,7 @@ import com.cxyzy.note.viewmodels.BaseViewModel
 
 abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
 
-    protected var mViewModel: VM? = null
+    protected lateinit var viewModel: VM
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutId())
@@ -16,6 +16,7 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
         prepareBeforeInitView()
         setToolbar()
         initView()
+        initListeners()
         startObserve()
     }
 
@@ -30,12 +31,13 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
 
     open fun prepareBeforeInitView() {}
     open fun initView() {}
+    open fun initListeners() {}
     open fun startObserve() {}
 
     private fun initVM() {
         providerVMClass()?.let {
-            mViewModel = ViewModelProviders.of(this).get(it)
-            lifecycle.addObserver(mViewModel!!)
+            viewModel = ViewModelProviders.of(this).get(it)
+            lifecycle.addObserver(viewModel!!)
         }
     }
 
@@ -51,7 +53,7 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
 
 
     override fun onDestroy() {
-        mViewModel?.let {
+        viewModel?.let {
             lifecycle.removeObserver(it)
         }
 

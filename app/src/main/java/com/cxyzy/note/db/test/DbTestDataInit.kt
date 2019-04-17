@@ -7,7 +7,6 @@ import com.cxyzy.note.db.AppDatabase
 import com.cxyzy.note.db.bean.Note
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
-import java.util.*
 
 class DbTestDataInit(
         context: Context,
@@ -24,8 +23,8 @@ class DbTestDataInit(
 //        (1..100).forEach {
 //            mList.add(Note(it.toLong(), "note$it"))
 //        }
-//        database.taskDao().add(mList)
-        database.taskDao().add(Note(0, "sample Note"))
+//        database.noteDao().add(mList)
+        database.noteDao().add(Note(0, "sample Note"))
         Result.success()
     }
 }

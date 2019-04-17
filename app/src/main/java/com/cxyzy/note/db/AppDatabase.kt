@@ -18,7 +18,7 @@ import com.cxyzy.note.db.test.DbTestDataInit
 @Database(entities = [Note::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun taskDao(): NoteDao
+    abstract fun noteDao(): NoteDao
 
     companion object {
 

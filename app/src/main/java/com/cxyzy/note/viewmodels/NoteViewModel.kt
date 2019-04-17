@@ -6,8 +6,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class NoteViewModel internal constructor(private val noteRepository: NoteRepository) : BaseViewModel() {
-    val taskList = noteRepository.getTaskList()
+class NoteViewModel : BaseViewModel() {
+    val noteList = NoteRepository.getNoteList()
 
 
     fun add(content: String,
@@ -17,7 +17,7 @@ class NoteViewModel internal constructor(private val noteRepository: NoteReposit
 
         launchOnUITryCatch(
                 {
-                    noteRepository.add(content)
+                    NoteRepository.add(content)
                     onSuccess?.invoke()
                 },
                 {
@@ -30,13 +30,13 @@ class NoteViewModel internal constructor(private val noteRepository: NoteReposit
 
     fun update(note: Note) {
         GlobalScope.launch {
-            noteRepository.update(note)
+            NoteRepository.update(note)
         }
     }
 
     fun del(id: Long) {
         GlobalScope.launch {
-            noteRepository.del(id)
+            NoteRepository.del(id)
         }
     }
 }
