@@ -7,6 +7,9 @@ import com.cxyzy.note.utils.KeyBoardUtil.showSoftInput
 import com.cxyzy.note.viewmodels.NoteViewModel
 import kotlinx.android.synthetic.main.activity_edit_note.*
 
+/**
+ * Base class for add and edit note
+ */
 abstract class BaseNoteActivity : BaseActivity<NoteViewModel>() {
 
     protected var note: Note? = null
