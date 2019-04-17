@@ -47,7 +47,7 @@ abstract class BaseNoteActivity : BaseActivity<NoteViewModel>() {
     }
 
     abstract fun initTitle()
-    open fun initContent(){}
+    open fun initContent() {}
     abstract fun initMenu()
-    abstract fun saveNote(content:String)
+    abstract fun saveNote(content: String)
 }

@@ -12,7 +12,7 @@ class AddNoteActivity : BaseNoteActivity() {
         editNoteToolbar.menu.findItem(R.id.delNoteMenuItem).isVisible = false
     }
 
-    override fun saveNote(content:String) {
+    override fun saveNote(content: String) {
         viewModel.add(content)
         finish()
     }
