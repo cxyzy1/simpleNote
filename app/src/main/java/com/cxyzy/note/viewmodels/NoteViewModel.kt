@@ -1,19 +1,31 @@
 package com.cxyzy.note.viewmodels
 
-import androidx.lifecycle.ViewModel
 import com.cxyzy.note.db.bean.Note
 import com.cxyzy.note.db.repository.NoteRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
-class NoteViewModel internal constructor(private val noteRepository: NoteRepository) : ViewModel() {
+class NoteViewModel internal constructor(private val noteRepository: NoteRepository) : BaseViewModel() {
     val taskList = noteRepository.getTaskList()
 
 
-    fun add(content: String) {
-        GlobalScope.launch {
-            noteRepository.add(content)
-        }
+    fun add(content: String,
+            onSuccess: (() -> Unit)? = null,
+            onError: ((throwable: Throwable) -> Unit)? = null,
+            onFinish: (() -> Unit)? = null) {
+
+        launchOnUITryCatch(
+                {
+                    noteRepository.add(content)
+                    onSuccess?.invoke()
+                },
+                {
+                    onError?.invoke(it)
+                    Timber.e(it)
+                },
+                { onFinish?.invoke() },
+                true)
     }
 
     fun update(note: Note) {

@@ -10,6 +10,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.cxyzy.note.DATABASE_NAME
 import com.cxyzy.note.db.bean.Note
+import com.cxyzy.note.db.converters.Converters
 import com.cxyzy.note.db.dao.NoteDao
 import com.cxyzy.note.db.test.DbTestDataInit
 
