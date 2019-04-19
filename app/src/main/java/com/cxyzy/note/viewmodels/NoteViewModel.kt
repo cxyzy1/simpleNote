@@ -1,13 +1,13 @@
 package com.cxyzy.note.viewmodels
 
 import com.cxyzy.note.db.bean.Note
-import com.cxyzy.note.db.repository.NoteRepository
+import com.cxyzy.note.db.repository.NoteRepositoryImpl
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class NoteViewModel : BaseViewModel() {
-    val noteList = NoteRepository.getNoteList()
+class NoteViewModel(private val noteRepository: NoteRepositoryImpl) : BaseViewModel() {
+    val noteList = noteRepository.list()
 
 
     fun add(content: String,
@@ -17,7 +17,7 @@ class NoteViewModel : BaseViewModel() {
 
         launchOnUITryCatch(
                 {
-                    NoteRepository.add(content)
+                    noteRepository.add(content)
                     onSuccess?.invoke()
                 },
                 {
@@ -30,13 +30,13 @@ class NoteViewModel : BaseViewModel() {
 
     fun update(note: Note) {
         GlobalScope.launch {
-            NoteRepository.update(note)
+            noteRepository.update(note)
         }
     }
 
     fun del(id: Long) {
         GlobalScope.launch {
-            NoteRepository.del(id)
+            noteRepository.del(id)
         }
     }
 }

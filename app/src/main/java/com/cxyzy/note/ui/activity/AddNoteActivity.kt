@@ -13,7 +13,7 @@ class AddNoteActivity : BaseNoteActivity() {
     }
 
     override fun saveNote(content: String) {
-        viewModel.add(content)
+        viewModel().add(content)
         finish()
     }
 

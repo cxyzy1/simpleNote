@@ -20,7 +20,7 @@ class EditNoteActivity : BaseNoteActivity() {
     override fun saveNote(content: String) {
         note?.let {
             it.content = content
-            viewModel.update(it)
+            viewModel().update(it)
         }
 
         finish()

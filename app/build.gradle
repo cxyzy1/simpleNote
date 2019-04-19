@@ -64,4 +64,9 @@ dependencies {
 
     implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
     implementation "org.jetbrains.anko:anko-commons:$rootProject.ankoVersion"
+
+    //Koin
+    implementation "org.koin:koin-android:$rootProject.koinVersion"
+    implementation "org.koin:koin-android-scope:$rootProject.koinVersion"
+    implementation "org.koin:koin-android-viewmodel:$rootProject.koinVersion"
 }

@@ -3,16 +3,15 @@ package com.cxyzy.note.ui.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.ViewModelProviders
 import com.cxyzy.note.viewmodels.BaseViewModel
 
 abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
 
-    protected lateinit var viewModel: VM
+    protected abstract fun viewModel(): VM
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutId())
-        initVM()
+        observeVM()
         prepareBeforeInitView()
         setToolbar()
         initView()
@@ -34,11 +33,8 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
     open fun initListeners() {}
     open fun startObserve() {}
 
-    private fun initVM() {
-        providerVMClass()?.let {
-            viewModel = ViewModelProviders.of(this).get(it)
-            lifecycle.addObserver(viewModel)
-        }
+    private fun observeVM() {
+        lifecycle.addObserver(viewModel())
     }
 
     /**
@@ -46,14 +42,9 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
      */
     open fun providerToolBar(): Toolbar? = null
 
-    /**
-     * [BaseViewModel]的实现类
-     */
-    open fun providerVMClass(): Class<VM>? = null
-
 
     override fun onDestroy() {
-        viewModel.let {
+        viewModel().let {
             lifecycle.removeObserver(it)
         }
 

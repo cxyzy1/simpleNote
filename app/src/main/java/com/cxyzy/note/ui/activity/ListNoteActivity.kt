@@ -7,17 +7,17 @@ import androidx.lifecycle.Observer
 import com.cxyzy.note.ExtraKey.KEY_NOTE
 import com.cxyzy.note.R
 import com.cxyzy.note.ui.adapter.NoteAdapter
-import com.cxyzy.note.utils.obtainViewModel
 import com.cxyzy.note.viewmodels.NoteViewModel
 import kotlinx.android.synthetic.main.activity_note.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class ListNoteActivity : AppCompatActivity() {
-    private lateinit var viewModel: NoteViewModel
+
+    val viewModel: NoteViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note)
-        viewModel = obtainViewModel(NoteViewModel::class.java)
         initViews()
         initListeners()
     }

@@ -6,15 +6,19 @@ import com.cxyzy.note.db.bean.Note
 import com.cxyzy.note.utils.KeyBoardUtil.showSoftInput
 import com.cxyzy.note.viewmodels.NoteViewModel
 import kotlinx.android.synthetic.main.activity_edit_note.*
+import org.koin.android.viewmodel.ext.android.getViewModel
 
 /**
  * Base class for add and edit note
  */
 abstract class BaseNoteActivity : BaseActivity<NoteViewModel>() {
 
+//    val viewModel: NoteViewModel by viewModel()
+
+    override fun viewModel(): NoteViewModel = getViewModel()
+
     protected var note: Note? = null
 
-    override fun providerVMClass(): Class<NoteViewModel> = NoteViewModel::class.java
     override fun layoutId(): Int = R.layout.activity_edit_note
 
     override fun prepareBeforeInitView() {
@@ -41,8 +45,10 @@ abstract class BaseNoteActivity : BaseActivity<NoteViewModel>() {
 
     }
 
+//    override fun viewModel():NoteViewModel = viewModel
+
     private fun delNote() {
-        note?.let { viewModel.del(it.id) }
+        note?.let { viewModel().del(it.id) }
         finish()
     }
 
