@@ -13,8 +13,6 @@ import org.koin.android.viewmodel.ext.android.getViewModel
  */
 abstract class BaseNoteActivity : BaseActivity<NoteViewModel>() {
 
-//    val viewModel: NoteViewModel by viewModel()
-
     override fun viewModel(): NoteViewModel = getViewModel()
 
     protected var note: Note? = null
@@ -44,8 +42,6 @@ abstract class BaseNoteActivity : BaseActivity<NoteViewModel>() {
         }
 
     }
-
-//    override fun viewModel():NoteViewModel = viewModel
 
     private fun delNote() {
         note?.let { viewModel().del(it.id) }
