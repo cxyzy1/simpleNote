@@ -10,6 +10,6 @@ import org.koin.dsl.module
 val appModule = module {
     single { AppDatabase.getInstance(androidApplication()) }
     single(createdAtStart = false) { get<AppDatabase>().noteDao() }
-    factory { NoteRepository(get()) }
+    single { NoteRepository(get()) }
     viewModel { NoteViewModel(get()) }
 }
