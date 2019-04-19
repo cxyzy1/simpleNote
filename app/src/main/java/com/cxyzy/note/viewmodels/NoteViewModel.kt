@@ -1,14 +1,13 @@
 package com.cxyzy.note.viewmodels
 
 import com.cxyzy.note.db.bean.Note
-import com.cxyzy.note.db.repository.NoteRepositoryImpl
+import com.cxyzy.note.db.repository.NoteRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class NoteViewModel(private val noteRepository: NoteRepositoryImpl) : BaseViewModel() {
+class NoteViewModel(private val noteRepository: NoteRepository) : BaseViewModel() {
     val noteList = noteRepository.list()
-
 
     fun add(content: String,
             onSuccess: (() -> Unit)? = null,
