@@ -1,4 +1,4 @@
-package com.cxyzy.ktor.demo.bean
+package com.cxyzy.note.server.bean
 
 import org.bson.codecs.pojo.annotations.BsonId
 import java.util.*

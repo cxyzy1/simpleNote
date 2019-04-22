@@ -1,4 +1,4 @@
-# ktor-kmongo-sample
+# simple-note-server
 Sample application using Kotlin, Ktor, and KMongo.
 
 

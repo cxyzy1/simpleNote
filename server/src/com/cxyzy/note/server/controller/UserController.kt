@@ -1,9 +1,9 @@
-package com.cxyzy.ktor.demo.controller
+package com.cxyzy.note.server.controller
 
-import com.cxyzy.ktor.demo.bean.BaseResult
-import com.cxyzy.ktor.demo.bean.User
-import com.cxyzy.ktor.demo.dbName
-import com.cxyzy.ktor.demo.request.RegisterRequest
+import com.cxyzy.note.server.bean.BaseResult
+import com.cxyzy.note.server.bean.User
+import com.cxyzy.note.server.dbName
+import com.cxyzy.note.server.request.RegisterRequest
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
 import io.ktor.response.respond
@@ -42,7 +42,7 @@ fun Route.userRoutes() {
             client.getDatabase(dbName)
                 .getCollection<User>(collectionName)
                 .insertOne(user)
-            val result = BaseResult(100,"ok")
+            val result = BaseResult(100, "ok")
             call.respond(HttpStatusCode.OK,result)
         }
     }

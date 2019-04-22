@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktor-sample.ktor-sample.iml" filepath="$PROJECT_DIR$/.idea/modules/ktor-sample.ktor-sample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktor-sample.ktor-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktor-sample.ktor-sample.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktor-sample.ktor-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktor-sample.ktor-sample.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simple-note.simple-note.iml" filepath="$PROJECT_DIR$/.idea/modules/simple-note.simple-note.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simple-note.simple-note.main.iml" filepath="$PROJECT_DIR$/.idea/modules/simple-note.simple-note.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/simple-note.simple-note.test.iml" filepath="$PROJECT_DIR$/.idea/modules/simple-note.simple-note.test.iml" />
     </modules>
   </component>
 </project>

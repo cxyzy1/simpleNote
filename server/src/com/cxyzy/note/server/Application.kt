@@ -1,6 +1,6 @@
-package com.cxyzy.ktor.demo
+package com.cxyzy.note.server
 
-import com.cxyzy.ktor.demo.controller.userRoutes
+import com.cxyzy.note.server.controller.userRoutes
 import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.application.Application
 import io.ktor.application.install

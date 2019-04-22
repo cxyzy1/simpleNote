@@ -1,6 +1,6 @@
 package io.jkratz.katas
 
-import com.cxyzy.ktor.demo.module
+import com.cxyzy.note.server.module
 import io.ktor.http.*
 import kotlin.test.*
 import io.ktor.server.testing.*
